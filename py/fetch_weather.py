@@ -74,15 +74,16 @@ def format_data(jsondata):
 	loc_name = jsondata['name']
 	current_cond = jsondata['weather'][0]['main']
 
-	print("Conditions at {place}: {temp} and {conditions}".format( \
+	print("Conditions at {place}: {temp} with {h}% humidity and {conditions}".format( \
 		place = loc_name,
 		temp = "{:3.1f}F".format(current_temp[0]),
-		conditions = current_cond))
+		conditions = current_cond,
+        h = jsondata['main']['humidity'] ))
 
 
 if __name__ == "__main__":
 	threads = list()
-	for index,value in enumerate(["43162,us","80513,us","49931,us"]):
+	for index,value in enumerate(["43162,us","80513,us","49931,us","26135,de"]):
 		x = threading.Thread(target=fetch_function, args=(value,))
 		threads.append(x)
 		x.start()
