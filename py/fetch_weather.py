@@ -83,7 +83,7 @@ def format_data(jsondata):
 
 if __name__ == "__main__":
 	threads = list()
-	for index,value in enumerate(["43162,us","80513,us","49931,us","26135,de"]):
+	for index,value in enumerate(["43162,us","80513,us","49931,us","26135,de","V6L,ca"]):
 		x = threading.Thread(target=fetch_function, args=(value,))
 		threads.append(x)
 		x.start()
